@@ -8,7 +8,25 @@ editor: visual
 
 Your proposal should include:
 
-* A brief description of your dataset including its provenance, dimensions, etc. (Make sure to load the data and use inline code for some of this information.)
-* The reason why you chose this dataset.
-* The two questions you want to answer.
-  + A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+-   A brief description of your dataset including its provenance, dimensions, etc. (Make sure to load the data and use inline code for some of this information.)
+-   The reason why you chose this dataset.
+-   The two questions you want to answer.
+    -   A plan for answering each of the questions including the variables involved, variables to be created (if any), external data to be merged in (if any).
+
+**Brief Description:**
+
+[Our data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md) is from the Tidy Tuesday dataset with dimensions of 2265x14. 
+
+**Why we chose our dataset**
+
+We chose this dataset because we are interested in investigating the relationship between movie types and public reception of them, as well as changes in movie style over time. We wondered whether the holiday the movies were written for played a role in this, i.e. do Christmas movies fare better than Hanukkah movies? 
+
+**Questions:**
+
+1: How do movie ratings vary by holiday, and what factors, such as number of votes, run time, and movie age, might affect this?
+
+2: How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time? 
+
+**Plan:**
+
+To answer our first question, we would start by combining the holidays into one column using a pivot_longer function. Then we could compare the different factors, making visualizations and examining summary statistics. We could even use the facet_wrap function to compare the 3 holidays. For our second question the data would be clean, having already wrangled it for the first question. We would make a simple scatterplot for starters, even linking color to the holiday!  
