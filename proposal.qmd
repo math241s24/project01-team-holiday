@@ -23,7 +23,7 @@ We chose this dataset because we are interested in investigating the relationshi
 
 **Questions:**
 
-1: How do movie ratings vary by holiday, and what factors, such as number of votes, run time, and movie age, might affect this?
+1: How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating?
 
 2: How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time? 
 
