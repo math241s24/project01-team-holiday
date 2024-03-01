@@ -15,7 +15,14 @@ Your proposal should include:
 
 **Brief Description:**
 
-[Our data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md) is from the Tidy Tuesday dataset with dimensions of 2265x14. 
+[Our data](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-12-12/readme.md) is from the Tidy Tuesday dataset with dimensions of 2265x14.
+
+```{r}
+library(readr)
+library(dplyr)
+holiday_movies <- read_csv("data/holiday_movies.csv")
+glimpse(holiday_movies)
+```
 
 **Why we chose our dataset**
 
@@ -27,7 +34,23 @@ We chose this dataset because we are interested in investigating the relationshi
 
 2: How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time? 
 
-**Plan:** Within our dataset, we will be working with the following variables: primary_title- the most popular title the movie is known by, year- the year the movie was released, runtime_minutes- the length of the movie, christmas- whether or not the title contains "christmas" or some variation, hanukkah- whether or not the title contains "hanukkah" or some variation, kwanzaa- whether or not the title contains "kwanzaa" or some variation, holiday- whether or not the title contains "holiday", average_rating- ..., year-...
+**Plan:** Within our dataset, we will be working with the following variables:
+
+-   primary_title - the most popular title the movie is known by
+
+-   year - the year the movie was released
+
+-   runtime_minutes - the length of the movie, in minutes
+
+-   christmas - whether or not the title contains "christmas" or some variation
+
+-   hanukkah - whether or not the title contains "hanukkah" or some variation
+
+-   kwanzaa - whether or not the title contains "kwanzaa" or some variation
+
+-   holiday - whether or not the title contains "holiday"
+
+-   average_rating - the average rating of the film
 
 To answer our first question, we would start by combining the holidays into one column using a pivot_longer function. Then we could compare the different factors, making visualizations and examining summary statistics. We could even use the facet_wrap function to compare the 3 holidays. We will be using a scatter plot with average_rating on the y-axis, year on the x-axis, and holiday as the color of the points. We may also make a bar graph with holiday on the x-axis and average_rating on the y-axis.
 
