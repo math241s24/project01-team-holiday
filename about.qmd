@@ -4,5 +4,4 @@ format: html
 editor: visual
 ---
 
-This project is developed by **Adrien** as a template for the first mini-project of Math/Stat 241 at Reed College.
-
+This project is developed by **James Aas, Audrey Mills, Jameson Oates, and Willow White** for the first mini-project of Math/Stat 241 at Reed College.
