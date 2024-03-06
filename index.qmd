@@ -69,14 +69,42 @@ ggplot(filtered_holiday_movies, aes(x = year, y = runtime_minutes, fill = holida
   )
 ```
 
+library(ggplot2)
+
+ggplot(filtered_holiday_movies, aes(x = year, y = average_rating, color = holidays)) +
+
+geom_point() +
+
+facet_wrap(\~ holidays) +
+
+theme(axis.text.x = element_text(angle = 65, vjust = 0.6))
+
 ```{r}
 #problem 1
 
 library(ggplot2)
 
-ggplot(filtered_holiday_movies, aes(x = year, y = average_rating, color = holidays)) +
-  geom_point() +
+ggplot(filtered_holiday_movies, aes(x = year, 
+                                    y = average_rating, 
+                                    color = holidays)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method="lm", 
+              se = FALSE, 
+              color = "gray36") +
   facet_wrap(~ holidays) +
-  theme(axis.text.x = element_text(angle = 65, vjust = 0.6))
+  theme(axis.text.x = element_text(angle = 65, 
+                                   vjust = 0.6)) + 
+  labs(title = "Average Movie Rating by Year and Holiday",
+       x = "Year", 
+       y = "Average Rating",
+       color = "Holidays")
 
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(filtered_holiday_movies, aes(x = average_rating, color = holidays)) +
+  geom_density() +
+  labs
 ```
