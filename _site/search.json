@@ -74,27 +74,41 @@
     "href": "presentation.html#question-1-graph-1",
     "title": "Project Presentation",
     "section": "Question 1 Graph 1",
-    "text": "Question 1 Graph 1\n\nHow does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?\n\nWe combined holidays into one column using pivot longer\nOur first graph shows average rating by year and is colored by holiday\nINSERT GRAPH HERE!!!\nINSERT GRAPH INTERPRETATION HERE"
+    "text": "Question 1 Graph 1\n\nHow does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?\n\nWe combined holidays into one column using pivot longer\nOur first graph is a density plot showing the average rating density by movie type\n\n\n\n\nKwanzaa highest ratings (sample size)\nHanukkah variance in ratings"
   },
   {
     "objectID": "presentation.html#question-1-graph-2",
     "href": "presentation.html#question-1-graph-2",
     "title": "Project Presentation",
     "section": "Question 1 Graph 2",
-    "text": "Question 1 Graph 2\n\nOur second graph shows is a bar graph showing average rating by holiday.\nINSERT GRAPH HERE!!!\nINSERT GRAPH INTERPRETATION HERE What we gain from this graph is …"
+    "text": "Question 1 Graph 2\n\nOur second graph shows is aa scatterplot with line of best fit showing average rating by year for each holiday\n\n\n\nDecrease in ratings overtime\nSmall samples for some holidays\nFairly consistant\nOVERALL CONCLUSION"
   },
   {
     "objectID": "presentation.html#question-2-graph-1",
     "href": "presentation.html#question-2-graph-1",
     "title": "Project Presentation",
     "section": "Question 2 Graph 1",
-    "text": "Question 2 Graph 1\n\nHow do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?\n\nOur first graph shows run time by year and is colored by holiday\nINSERT GRAPH HERE!!!\nINSERT GRAPH INTERPRETATION HERE"
+    "text": "Question 2 Graph 1\n\nHow do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?\n\nOur first graph is a violin plot showing runtime by holiday\n\n\n\n\nKwanzaa movies short runtimes\nHanukkah next\nChristmas have longest, concentration around 90 minutes\nholiday movies in general -&gt; 90 minutes but have a wide range"
   },
   {
     "objectID": "presentation.html#question-2-graph-2",
     "href": "presentation.html#question-2-graph-2",
     "title": "Project Presentation",
     "section": "Question 2 Graph 2",
-    "text": "Question 2 Graph 2\n\nOur second graph shows …\nINSERT GRAPH HERE!!!\nINSERT GRAPH INTERPRETATION HERE"
+    "text": "Question 2 Graph 2\n\nOur second graph is a a scatterplot showing runtime by year and holiday\n\n\n\nRuntime has increased slightly over the years\nStayed fairly consistent for holiday movies overall\nOVERALL CONCLUSION"
+  },
+  {
+    "objectID": "presentation.html#question-2-graph-1-.smaller",
+    "href": "presentation.html#question-2-graph-1-.smaller",
+    "title": "Project Presentation",
+    "section": "Question 2 Graph 1 {.smaller}",
+    "text": "Question 2 Graph 1 {.smaller}\n\nHow do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?\n\nOur first graph shows run time by year and is colored by holiday\nINSERT GRAPH HERE!!!\nINSERT GRAPH INTERPRETATION HERE"
+  },
+  {
+    "objectID": "presentation.html#question-2-linear-model",
+    "href": "presentation.html#question-2-linear-model",
+    "title": "Project Presentation",
+    "section": "Question 2 Linear Model",
+    "text": "Question 2 Linear Model\n\nlibrary(moderndive)\nholidays_lm &lt;- lm(data = filtered_holiday_movies, runtime_minutes ~ year * holidays)\nget_regression_table(holidays_lm)\n\n# A tibble: 8 × 7\n  term                    estimate std_error statistic p_value lower_ci upper_ci\n  &lt;chr&gt;                      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 intercept              -1125.       83.4     -13.5     0     -1.29e+3 -9.62e+2\n2 year                       0.598     0.042    14.4     0      5.17e-1  6.8 e-1\n3 holidays: hanukkah      -314.     1399.       -0.224   0.823 -3.06e+3  2.43e+3\n4 holidays: kwanzaa     -30868.    71303.       -0.433   0.665 -1.71e+5  1.09e+5\n5 holidays: holiday       1216.      133.        9.15    0      9.56e+2  1.48e+3\n6 year:holidayshanukkah      0.144     0.696     0.207   0.836 -1.22e+0  1.51e+0\n7 year:holidayskwanzaa      15.4      35.6       0.432   0.666 -5.45e+1  8.53e+1\n8 year:holidaysholiday      -0.602     0.066    -9.06    0     -7.32e-1 -4.71e-1"
   }
 ]
