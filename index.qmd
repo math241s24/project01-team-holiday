@@ -43,6 +43,12 @@ You are not required to perform any statistical tests in this project, but you m
 How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
 
 ```{r}
+library(moderndive)
+holidays_lm <- lm(data = filtered_holiday_movies, runtime_minutes ~ year * holidays)
+get_regression_table(holidays_lm)
+```
+
+```{r}
 library(tidyr)
 library(readr)
 library(ggplot2)
@@ -68,16 +74,6 @@ ggplot(filtered_holiday_movies, aes(x = year, y = runtime_minutes, fill = holida
     title = 
   )
 ```
-
-library(ggplot2)
-
-ggplot(filtered_holiday_movies, aes(x = year, y = average_rating, color = holidays)) +
-
-geom_point() +
-
-facet_wrap(\~ holidays) +
-
-theme(axis.text.x = element_text(angle = 65, vjust = 0.6))
 
 ```{r}
 #problem 1
