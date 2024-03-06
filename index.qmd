@@ -12,6 +12,24 @@ Your write-up should consist of three parts:
 
 Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the `TidyTuesday` repository, for instance. Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.
 
+```{r, echo = FALSE}
+library(tidyr)
+library(readr)
+library(ggplot2)
+holiday_movies <- read_csv("data/holiday_movies.csv")
+
+new_holiday_movies <- pivot_longer(
+  holiday_movies,
+  cols = c("christmas", "hanukkah", "kwanzaa", "holiday"),
+  names_to = "holidays",
+  values_to = "true/false"
+)
+
+filtered_holiday_movies <- new_holiday_movies[new_holiday_movies$`true/false`, ]
+
+filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, levels = c("christmas", "hanukkah", "kwanzaa", "holiday"))
+```
+
 ### Question 1:
 
 The title should relate to the question you’re answering.
@@ -23,6 +41,34 @@ Introduction to the question and what parts of the dataset are necessary to answ
 #### Approach (1-2 paragraphs):
 
 Describe what types of plots you are going to make to address your question. For each plot, provide a clear explanation as to why this plot (e.g. boxplot, barplot, histogram, etc.) is best for providing the information you are asking about. The two plots should be of different types, and at least one of the two plots needs to use either color mapping or facets.
+
+```{r}
+library(ggplot2)
+
+ggplot(filtered_holiday_movies, aes(x = average_rating, 
+                                    color = holidays)) +
+  geom_density(size=1) +
+  labs(title = "Holiday movies by rating frequency",
+       x = "Average Rating",
+       y = "Density",
+       color = "Holiday in title") 
+
+ggplot(filtered_holiday_movies, aes(x = year, 
+                                    y = average_rating, 
+                                    color = holidays)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method="lm", 
+              se = FALSE, 
+              color = "gray36") +
+  facet_wrap(~ holidays) +
+  theme(axis.text.x = element_text(angle = 65, 
+                                   vjust = 0.6)) + 
+  labs(title = "Average Movie Rating by Year and Holiday",
+       x = "Year", 
+       y = "Average Rating",
+       color = "Holiday in title")
+
+```
 
 #### Analysis (2-3 code blocks, 2 figures, text/code comments as needed):
 
@@ -43,45 +89,23 @@ You are not required to perform any statistical tests in this project, but you m
 How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
 
 ```{r}
-library(moderndive)
-holidays_lm <- lm(data = filtered_holiday_movies, runtime_minutes ~ year * holidays)
-get_regression_table(holidays_lm)
+library(dplyr)
+Christmas <- filtered_holiday_movies %>%
+  filter(holidays == "christmas") %>%
+  filter(year >= 2000 & year <= 2023)
+
+ggplot(filtered_holiday_movies, aes(x = runtime_minutes, y = holidays, fill = holidays))+
+    geom_violin()+
+  labs(title = "Runtime in Holiday movies",
+    x = "Runtime (in minutes)",
+    y = "",
+    fill = "Title contains")
+ 
 ```
 
 ```{r}
-library(tidyr)
-library(readr)
-library(ggplot2)
-holiday_movies <- read_csv("data/holiday_movies.csv")
-
-new_holiday_movies <- pivot_longer(
-  holiday_movies,
-  cols = c("christmas", "hanukkah", "kwanzaa", "holiday"),
-  names_to = "holidays",
-  values_to = "true/false"
-)
-
-filtered_holiday_movies <- new_holiday_movies[new_holiday_movies$`true/false`, ]
-
-filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, levels = c("christmas", "hanukkah", "kwanzaa", "holiday"))
-
-ggplot(filtered_holiday_movies, aes(x = year, y = runtime_minutes, fill = holidays)) + 
-  geom_bar(stat = "identity") +
-  labs(
-    x = "Year",
-    y = "Runtime (in minutes)",
-    fill = "Title contains:",
-    title = 
-  )
-```
-
-```{r}
-#problem 1
-
-library(ggplot2)
-
 ggplot(filtered_holiday_movies, aes(x = year, 
-                                    y = average_rating, 
+                                    y = runtime_minutes, 
                                     color = holidays)) +
   geom_point(alpha = 0.6) +
   geom_smooth(method="lm", 
@@ -90,23 +114,18 @@ ggplot(filtered_holiday_movies, aes(x = year,
   facet_wrap(~ holidays) +
   theme(axis.text.x = element_text(angle = 65, 
                                    vjust = 0.6)) + 
-  labs(title = "Average Movie Rating by Year and Holiday",
+  labs(title = "Movie Runtime by Year and Holiday",
        x = "Year", 
-       y = "Average Rating",
-       color = "Holidays")
+       y = "Runtime in minutes",
+       color = "Holiday in movie title")
+
 
 ```
 
+Linear Model:
+
 ```{r}
-library(ggplot2)
-
-ggplot(filtered_holiday_movies, aes(x = average_rating, 
-                                    color = holidays)) +
-  geom_density() +
-  labs(title = "Holiday movies by rating frequency",
-       x = "Average Rating",
-       y = "Density",
-       color = "Holidays") 
-
-
+library(moderndive)
+holidays_lm <- lm(data = filtered_holiday_movies, runtime_minutes ~ year * holidays)
+get_regression_table(holidays_lm)
 ```
