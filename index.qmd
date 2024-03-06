@@ -12,9 +12,9 @@ Your write-up should consist of three parts:
 
 *Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the `TidyTuesday` repository, for instance. Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.*
 
-The dataset we chose is the holiday movies dataset from the TidyTuesday repository with dimensions of 2265x14. Our dataset looks at "holiday" movies: movies with "holiday", "Christmas", "Hanukkah", or "Kwanzaa" (or variants thereof) in their title. This dataset has 15 variables, some of which being primary_title, original_title, year, runtime_minutes, genres, average_rating, and whether or not movies contain "holiday" in their titles, as well as if it is a Christmas, Hanukkah, or Kwanzaa movie.
+The dataset we chose is the holiday movies dataset from the TidyTuesday repository with dimensions of 2265x14. Our dataset looks at "holiday" movies: movies with "holiday", "Christmas", "Hanukkah", or "Kwanzaa" (or variants thereof) in their title. This dataset has 15 variables, some of which are: primary_title, original_title, year, runtime_minutes, genres, average_rating, and whether or not movies contain "Holiday", "Christmas", "Hanukkah", or "Kwanzaa" in their titles (using "TRUE" or "FALSE").
 
-We chose this dataset because we are interested in investigating the relationship between movie types and public reception of them, as well as changes in movie style over time. We wondered whether the holiday the movies were written for played a role in this, i.e. do Christmas movies fare better than Hanukkah movies?
+We chose this dataset because we are interested in investigating the relationship between movie types and their public receptions, as well as how elements of movies change over time. We wondered whether the specific holiday the movies were written for played a role in this, i.e. do Christmas movies fare better than Hanukkah movies?
 
 ```{r, echo = FALSE}
 library(tidyr)
@@ -38,11 +38,13 @@ filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, lev
 
 *The title should relate to the question you’re answering.*
 
+How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating?
+
 #### Introduction (1-2 paragraphs):
 
 *Introduction to the question and what parts of the dataset are necessary to answer the question. Also discuss why you’re interested in this question.*
 
-Our first question was how does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating? In order to answer this question we started by combining the holidays into one column using a pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies' average_rating, and the year it was made (ie. the age of the movie).
+For this question, we start by looking at the columns "christmas", "hanukkah", "kwanzaa" and "holiday". Each film is assigned either "TRUE" or "FALSE" for if its title contains any of these words. To clean the data, we combined these columns into one, "holidays", using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies' average_rating, and the year it was made (ie. the age of the movie).
 
 #### Approach (1-2 paragraphs):
 
