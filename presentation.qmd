@@ -11,7 +11,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Outline
+## Outline {.smaller}
 
 * Your presentation should generally follow the same structure as your write-up. 
 
@@ -28,3 +28,41 @@ editor_options:
   + You should feel free to have more (or fewer) slides. 
   
 * Your evaluation will be based on your content, professionalism (including sticking to time), and your performance during the Q&A (question and answer). We don’t care how many slides you use to do this.
+
+## Introduction
+
+* We looked at trends relating to ratings, age, and run time of different holiday movies
+  * We chose this data set because we are interested in:
+    * relationship between movie types and public reception of them
+    * changes in movie style over time
+    * whether the holiday the movies were written for played a role in this
+
+## Question 1 Graph 1
+
+* How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating?
+  * We combined holidays into one column using pivot longer
+  * Our first graph shows average rating by year and is colored by holiday
+  * INSERT GRAPH HERE!!!
+  * INSERT GRAPH INTERPRETATION HERE
+
+## Question 1 Graph 2
+
+* Our second graph shows is a bar graph showing average rating by holiday. 
+* INSERT GRAPH HERE!!!
+* INSERT GRAPH INTERPRETATION HERE What we gain from this graph is ...
+
+## Question 2 Graph 1
+
+* How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
+  * Our first graph shows run time by year and is colored by holiday
+  * INSERT GRAPH HERE!!!
+  * INSERT GRAPH INTERPRETATION HERE
+
+## Question 2 Graph 2
+
+* Our second graph shows ...
+* INSERT GRAPH HERE!!!
+* INSERT GRAPH INTERPRETATION HERE
+
+
+

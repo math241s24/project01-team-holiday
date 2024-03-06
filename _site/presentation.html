@@ -8,9 +8,9 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.3.450">
 
-  <title>Seattle Bike - Project Presentation</title>
+  <title>project01-team-holiday - Project Presentation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -155,8 +155,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -332,7 +331,7 @@
 </div>
 
 </section>
-<section id="outline" class="slide level2">
+<section id="outline" class="slide level2 smaller">
 <h2>Outline</h2>
 <ul>
 <li><p>Your presentation should generally follow the same structure as your write-up.</p></li>
@@ -351,11 +350,62 @@
 </ul></li>
 <li>Your evaluation will be based on your content, professionalism (including sticking to time), and your performance during the Q&amp;A (question and answer). We don’t care how many slides you use to do this.</li>
 </ul>
+</section>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>We looked at trends relating to ratings, age, and run time of different holiday movies
+<ul>
+<li>We chose this data set because we are interested in:
+<ul>
+<li>relationship between movie types and public reception of them</li>
+<li>changes in movie style over time</li>
+<li>whether the holiday the movies were written for played a role in this</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="question-1-graph-1" class="slide level2">
+<h2>Question 1 Graph 1</h2>
+<ul>
+<li>How does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?
+<ul>
+<li>We combined holidays into one column using pivot longer</li>
+<li>Our first graph shows average rating by year and is colored by holiday</li>
+<li>INSERT GRAPH HERE!!!</li>
+<li>INSERT GRAPH INTERPRETATION HERE</li>
+</ul></li>
+</ul>
+</section>
+<section id="question-1-graph-2" class="slide level2">
+<h2>Question 1 Graph 2</h2>
+<ul>
+<li>Our second graph shows is a bar graph showing average rating by holiday.</li>
+<li>INSERT GRAPH HERE!!!</li>
+<li>INSERT GRAPH INTERPRETATION HERE What we gain from this graph is …</li>
+</ul>
+</section>
+<section id="question-2-graph-1" class="slide level2">
+<h2>Question 2 Graph 1</h2>
+<ul>
+<li>How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
+<ul>
+<li>Our first graph shows run time by year and is colored by holiday</li>
+<li>INSERT GRAPH HERE!!!</li>
+<li>INSERT GRAPH INTERPRETATION HERE</li>
+</ul></li>
+</ul>
+</section>
+<section id="question-2-graph-2" class="slide level2">
+<h2>Question 2 Graph 2</h2>
+<ul>
+<li>Our second graph shows …</li>
+<li>INSERT GRAPH HERE!!!</li>
+<li>INSERT GRAPH INTERPRETATION HERE</li>
+</ul>
 
-<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
-</div>
 </div>
 </section>
     </div>
@@ -384,6 +434,7 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -644,9 +695,10 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -656,17 +708,8 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
