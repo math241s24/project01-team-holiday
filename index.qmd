@@ -104,7 +104,13 @@ ggplot(filtered_holiday_movies, aes(x = year,
 ```{r}
 library(ggplot2)
 
-ggplot(filtered_holiday_movies, aes(x = average_rating, color = holidays)) +
+ggplot(filtered_holiday_movies, aes(x = average_rating, 
+                                    color = holidays)) +
   geom_density() +
-  labs
+  labs(title = "Holiday movies by rating frequency",
+       x = "Average Rating",
+       y = "Density",
+       color = "Holidays") 
+
+
 ```
