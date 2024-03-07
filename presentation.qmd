@@ -69,9 +69,9 @@ filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, lev
 ::: {.notes}
 * How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating? 
   * We combined holidays into one column using pivot longer
-  * Our first graph is a density plot showing the average rating density by movie type
+  * Our first graph is a histogram showing the frequency of different average ratings by movie type
   * Kwanzaa highest ratings (sample size)
-  * Hanukkah variance in ratings
+  * Hanukkah variance in ratings (also hard to see, given low number of data points)
   * Christmas and Holiday most frequent
 :::
 
