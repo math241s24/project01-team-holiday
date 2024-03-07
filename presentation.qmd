@@ -129,7 +129,6 @@ ggplot(filtered_holiday_movies, aes(x = year,
   * Holiday movies in general -> 90 minutes but have a wide range
 :::
 
-
 ```{r, echo = FALSE}
 #visualizes the density of runtimes based on holiday
 library(dplyr)
