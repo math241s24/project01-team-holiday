@@ -94,11 +94,10 @@ ggplot(filtered_holiday_movies, aes(x = average_rating,
 * Our second graph is a scatterplot with line of best fit showing the average rating over time for each holiday 
   * Decrease in ratings over time
   * Fairly consistent
-  * Kwanzaa movies have the shortest runtimes (but small sample size)
-  * Hanukkah is next
-  * Christmas has the longest with a concentration around 90 minutes
-  * Holiday movies in general are typically around 90 minutes but have a wide range
-  * Hard to tell a pattern in kwanzaa and hanukkah, but useful for christmas and holiday
+  * Overall ratings for holiday movies have decreased slightly, fairly consistent
+  * Lack of datapoints for both Kwanzaa and Hanukkah movies
+  * Type of holiday mentioned in the title has a limited effect on the average rating
+  * As year increases the ratings for all types have slightly decreased
 :::
 
 ```{r, echo = FALSE}
