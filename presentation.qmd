@@ -53,19 +53,24 @@ filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, lev
   * From TidyTuesday repository
   * Dimensions: 2265x14
   * Movies titles containing "Holiday", "Christmas", "Hanukkah", or "Kwanzaa" 
+  
 * We looked at trends relating to ratings, age, and run time of different holiday movies 
   * We chose this data set because we are interested in:
     * relationship between movie types and public reception of them
-    * changes in movie style over time
-    * whether the holiday the movies were written for played a role in this
-
+    * changes in movie elements over time
+    * if the holiday the movies were written for played a role in this
 
 ## Question 1 Graph 1 {.smaller}
 
-* How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating?
+::: {.notes}
+* How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating? 
   * We combined holidays into one column using pivot longer
   * Our first graph is a density plot showing the average rating density by movie type
-  
+  * Kwanzaa highest ratings (sample size)
+  * Hanukkah variance in ratings
+  * Christmas and Holiday most frequent
+:::
+
 ```{r, echo = FALSE}
 #visualizes the frequency of ratings by different holiday movies
 ggplot(filtered_holiday_movies, aes(x = average_rating, 
@@ -77,14 +82,18 @@ ggplot(filtered_holiday_movies, aes(x = average_rating,
        fill = "Holiday in title:") +
   theme_minimal()
 ```
-  * Kwanzaa highest ratings (sample size)
-  * Hanukkah variance in ratings
-  * Christmas and Holiday most frequent
 
 
 ## Question 1 Graph 2 {.smaller}
 
+::: {.notes}
 * Our second graph shows is a scatterplot with line of best fit showing average rating over time for each holiday 
+  * Decrease in ratings overtime
+  * Small samples for some holidays
+  * Fairly consistent
+  * General takeaways
+:::
+
 ```{r, echo = FALSE}
 #visualizes the change in ratings over time, faceted by holiday
 ggplot(filtered_holiday_movies, aes(x = year, 
@@ -107,16 +116,20 @@ ggplot(filtered_holiday_movies, aes(x = year,
   theme(axis.text.x = element_text(angle = 65, 
                                    vjust = 0.6))
 ```
-  * Decrease in ratings overtime
-  * Small samples for some holidays
-  * Fairly consistent
-  * General takeaways
 
 
 ## Question 2 Graph 1 {.smaller} 
 
+::: {.notes}
 * How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
   * Our first graph is a violin plot showing density of runtimes based on holiday
+  * Kwanzaa movies short runtimes
+  * Hanukkah next
+  * Christmas have longest, concentration around 90 minutes 
+  * Holiday movies in general -> 90 minutes but have a wide range
+:::
+
+
 ```{r, echo = FALSE}
 #visualizes the density of runtimes based on holiday
 library(dplyr)
@@ -135,15 +148,17 @@ ggplot(filtered_holiday_movies, aes(x = runtime_minutes,
   theme_minimal() +
   theme(legend.position = "none")
 ```
-  * Kwanzaa movies short runtimes
-  * Hanukkah next
-  * Christmas have longest, concentration around 90 minutes 
-  * Holiday movies in general -> 90 minutes but have a wide range
 
 
 ## Question 2 Graph 2 {.smaller}
 
+::: {.notes}
 * Our second graph is a a scatterplot showing runtime of movies over time, faceted by holiday type
+  * Runtime has increased slightly over the years
+  * Stayed fairly consistent for holiday movies overall
+  * General takeaways
+:::
+
 ```{r, echo = FALSE}
 #visualize the runtime of movies over time, faceted by holiday type
 ggplot(filtered_holiday_movies, aes(x = year, 
@@ -164,9 +179,6 @@ ggplot(filtered_holiday_movies, aes(x = year,
                                    vjust = 0.6))
 ```
 
-  * Runtime has increased slightly over the years
-  * Stayed fairly consistent for holiday movies overall
-  * General takeaways
 
 ## Question 2 Linear Model {.smaller}
 
