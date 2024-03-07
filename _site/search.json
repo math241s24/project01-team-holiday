@@ -24,8 +24,8 @@
     "objectID": "presentation.html#outline",
     "href": "presentation.html#outline",
     "title": "Project Presentation",
-    "section": "",
-    "text": "Your presentation should generally follow the same structure as your write-up.\nEach team will have 5 minutes for their presentation, and each team member must speak (roughly equally) during this time.\nYour presentation will be created using Quarto, which allows you to write slides using the same coding structure you’re used to with Rmarkdown.\nThis is a sample Quarto slide template you can edit to your desire to create your presentation."
+    "section": "Outline",
+    "text": "Outline\n\nYour presentation should generally follow the same structure as your write-up.\nEach team will have 5 minutes for their presentation, and each team member must speak (roughly equally) during this time.\nYour presentation will be created using Quarto, which allows you to write slides using the same coding structure you’re used to with Rmarkdown.\nThis is a sample Quarto slide template you can edit to your desire to create your presentation."
   },
   {
     "objectID": "presentation.html#rubric",
@@ -74,28 +74,28 @@
     "href": "presentation.html#question-1-graph-1",
     "title": "Project Presentation",
     "section": "Question 1 Graph 1",
-    "text": "Question 1 Graph 1\n\nHow does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?\n\nWe combined holidays into one column using pivot longer\nOur first graph is a density plot showing the average rating density by movie type\n\n\n\n\n\n\n\n\nKwanzaa highest ratings (sample size)\nHanukkah variance in ratings"
+    "text": "Question 1 Graph 1\n\nHow does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?\n\nWe combined holidays into one column using pivot longer\nOur first graph is a density plot showing the average rating density by movie type\n\n\n\n\nKwanzaa highest ratings (sample size)\nHanukkah variance in ratings"
   },
   {
     "objectID": "presentation.html#question-1-graph-2",
     "href": "presentation.html#question-1-graph-2",
     "title": "Project Presentation",
     "section": "Question 1 Graph 2",
-    "text": "Question 1 Graph 2\n\nOur second graph shows is aa scatterplot with line of best fit showing average rating by year for each holiday\n\n\n\n\n\n\n\nDecrease in ratings overtime\nSmall samples for some holidays\nFairly consistant\nOVERALL CONCLUSION"
+    "text": "Question 1 Graph 2\n\nOur second graph shows is aa scatterplot with line of best fit showing average rating by year for each holiday\n\n\n\nDecrease in ratings overtime\nSmall samples for some holidays\nFairly consistant\nOVERALL CONCLUSION"
   },
   {
     "objectID": "presentation.html#question-2-graph-1",
     "href": "presentation.html#question-2-graph-1",
     "title": "Project Presentation",
     "section": "Question 2 Graph 1",
-    "text": "Question 2 Graph 1\n\nHow do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?\n\nOur first graph is a violin plot showing runtime by holiday\n\n\n\n\n\n\n\n\nKwanzaa movies short runtimes\nHanukkah next\nChristmas have longest, concentration around 90 minutes\nholiday movies in general -&gt; 90 minutes but have a wide range"
+    "text": "Question 2 Graph 1\n\nHow do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?\n\nOur first graph is a violin plot showing runtime by holiday\n\n\n\n\nKwanzaa movies short runtimes\nHanukkah next\nChristmas have longest, concentration around 90 minutes\nholiday movies in general -&gt; 90 minutes but have a wide range"
   },
   {
     "objectID": "presentation.html#question-2-graph-2",
     "href": "presentation.html#question-2-graph-2",
     "title": "Project Presentation",
     "section": "Question 2 Graph 2",
-    "text": "Question 2 Graph 2\n\nOur second graph is a a scatterplot showing runtime by year and holiday\n\n\n\n\n\n\n\nRuntime has increased slightly over the years\nStayed fairly consistent for holiday movies overall\nOVERALL CONCLUSION"
+    "text": "Question 2 Graph 2\n\nOur second graph is a a scatterplot showing runtime by year and holiday\n\n\n\nRuntime has increased slightly over the years\nStayed fairly consistent for holiday movies overall\nOVERALL CONCLUSION"
   },
   {
     "objectID": "presentation.html#question-2-graph-1-.smaller",
