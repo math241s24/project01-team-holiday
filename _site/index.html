@@ -155,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#write-up" id="toc-write-up" class="nav-link active" data-scroll-target="#write-up">Write-up</a>
   <ul class="collapse">
-  <li><a href="#introduction-1-2-paragraphs" id="toc-introduction-1-2-paragraphs" class="nav-link" data-scroll-target="#introduction-1-2-paragraphs">Introduction (1-2 paragraphs):</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction:</a>
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1:</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2:</a></li>
@@ -186,10 +186,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="write-up" class="level1">
 <h1>Write-up</h1>
-<p>Your write-up should consist of three parts:</p>
-<section id="introduction-1-2-paragraphs" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-1-2-paragraphs">Introduction (1-2 paragraphs):</h2>
-<p><em>Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the <code>TidyTuesday</code> repository, for instance. Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.</em></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
 <p>The dataset we chose is the holiday movies dataset from the TidyTuesday repository with dimensions of 2265x14. Our dataset looks at “holiday” movies: movies with “holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa” (or variants thereof) in their title. This dataset has 15 variables, some of which are: primary_title, original_title, year, runtime_minutes, genres, average_rating, and whether or not movies contain “Holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa” in their titles (using “TRUE” or “FALSE”).</p>
 <p>We chose this dataset because we are interested in investigating the relationship between movie types and their public receptions, as well as how elements of movies change over time. We wondered whether the specific holiday the movies were written for played a role in this, i.e.&nbsp;do Christmas movies fare better than Hanukkah movies?</p>
 <div class="cell">
@@ -197,62 +195,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moderndive)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 2265 Columns: 15
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(6): tconst, title_type, primary_title, original_title, genres, simple_t... dbl
-(5): ...1, year, runtime_minutes, average_rating, num_votes lgl (4): christmas,
-hanukkah, kwanzaa, holiday
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moderndive)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="question-1" class="level3">
 <h3 class="anchored" data-anchor-id="question-1">Question 1:</h3>
 <p>How does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?</p>
-<section id="introduction" class="level4">
-<h4 class="anchored" data-anchor-id="introduction">Introduction:</h4>
-<p>For this question, we start by looking at the columns “christmas”, “hanukkah”, “kwanzaa” and “holiday”. Each film is assigned either “TRUE” or “FALSE” for if its title contains any of these words. To clean the data, we combined these columns into one, “holidays”, using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies’ average_rating, and the year it was made (ie. the age of the movie).</p>
+<section id="introduction-1" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-1">Introduction:</h4>
+<p>For this question, we start by looking at the columns “christmas”, “hanukkah”, “kwanzaa” and “holiday”. Each film is assigned either “TRUE” or “FALSE” for if its title contains any of these words. To clean the data, we combined these columns into one, “holidays”, using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies’ average rating, and the year it was made (ie. the age of the movie).</p>
 </section>
 <section id="approach" class="level4">
 <h4 class="anchored" data-anchor-id="approach">Approach:</h4>
-<p>We then made some visualizations, a histogram plot showing the frequency of average rating by movie type, and a scatterplot with a line of best fit showing average rating by year for each holiday. The histogram is able to show us the frequency of certain ratings and the scatterplot is able to show us all the individual data points, as well as lines of best fit associated with different holidays.</p>
+<p>To visualize this question, made a histogram plot showing the frequency of average rating by movie type and a scatterplot with a line of best fit showing average rating by year for each holiday. The histogram is able to show us the frequency of certain ratings and the scatterplot is able to show us all the individual data points, as well as lines of best fit associated with different holidays.</p>
 </section>
-<section id="analysis-2-3-code-blocks-2-figures-textcode-comments-as-needed" class="level4">
-<h4 class="anchored" data-anchor-id="analysis-2-3-code-blocks-2-figures-textcode-comments-as-needed">Analysis (2-3 code blocks, 2 figures, text/code comments as needed):</h4>
+<section id="analysis" class="level4">
+<h4 class="anchored" data-anchor-id="analysis">Analysis:</h4>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -260,50 +224,37 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </section>
 <section id="discussion" class="level4">
 <h4 class="anchored" data-anchor-id="discussion">Discussion:</h4>
-<p>In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.</p>
-<p>Our first plot shows that overall it seems like Kwanzaa movies have the highest ratings overall, but this could be influenced by the fact that there are much fewer Kwanzaa movies in this dataset. This graph also shows us that Hanukkah movies have relatively high ratings, but are more variable compared to Christmas and holiday movies overall.</p>
-<p>Our second plot shows that overall ratings for holiday movies have decreased slightly but have been fairly consistent. It also more clearly exposes a hole in our data for both Kwanzaa and Hanukkah movies.</p>
-<p>These two graphs lead us to the conclusion that …</p>
+<p>Our first plot shows that overall it seems like Kwanzaa movies are slightly above the 5.0 mark, but there are so few data points that it is hard to draw meaningful conclusions about them. This graph also shows us that Hanukkah movies have relatively high ratings, but are more variable compared to Christmas and holiday movies overall.</p>
+<p>Our second plot shows that overall ratings for holiday movies have decreased slightly but have been fairly consistent. It also more clearly exposes a lack of datapoints for both Kwanzaa and Hanukkah movies.</p>
+<p>These two graphs lead us to the conclusion that the type of holiday mentioned in the title has a limited effect on the average rating, but as year increases the ratings for all typeshave slightly decreased.</p>
 </section>
 </section>
 <section id="question-2" class="level3">
 <h3 class="anchored" data-anchor-id="question-2">Question 2:</h3>
-<p><em>Same structure outlined for Question 1, but for your new question. And the title should relate to the question you’re answering.</em></p>
-<p><em>We encourage you to be concise. A paragraph should typically not be longer than 5 sentences.</em></p>
-<p><em>You are not required to perform any statistical tests in this project, but you may do so if you find it helpful to answer your question.</em></p>
-<section id="introduction-1" class="level4">
-<h4 class="anchored" data-anchor-id="introduction-1">Introduction:</h4>
-<p>Our second question was how do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time? The variables we looked at in this section were runtime_minutes, year, and type of movie.</p>
+<p>How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?</p>
+<section id="introduction-2" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-2">Introduction:</h4>
+<p>In our second question, we examine how movie runtime changes by movie type and age. To explore this, we used the variables runtime_minutes (the length of each movie), year (the year the movie was released in), and the type of movie (whether it contains Christmas, Holiday, Kwanzaa, or Hanukkah in the title). We looked to see if there was variation in movie length depending on its age, and if there was variation in average movie length based on its title.</p>
 </section>
 <section id="approach-1" class="level4">
 <h4 class="anchored" data-anchor-id="approach-1">Approach:</h4>
-<p>For our second question we made a violin plot showing runtime by holiday, and a scatterplot showing runtime by year and holiday. A violin plot is able to show us … and a scatterplot is able to show us …</p>
+<p>For our second question we made a violin plot that shows runtime by holiday. By using a violin plot, we are able to look at the density of runtime for each holiday, however it is important to note that the densities are not proportional in relation to each other. We also made a scatterplot showing runtime by year and holiday. The scatterplot is able to show us the individual points (representing individual movies), and how the trend in runtime has changed over the years. We included a linear model in order to gain an understanding of the strength of the correlation between these variables.</p>
 </section>
-<section id="analysis" class="level4">
-<h4 class="anchored" data-anchor-id="analysis">Analysis:</h4>
+<section id="analysis-1" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-1">Analysis:</h4>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 190 rows containing non-finite values (`stat_ydensity()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 190 rows containing non-finite values (`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 190 rows containing missing values (`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Linear Model:</p>
+</section>
+<section id="linear-model" class="level4">
+<h4 class="anchored" data-anchor-id="linear-model">Linear Model:</h4>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 7
@@ -316,7 +267,8 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 5 holidays: holiday    12.2       1.66       7.37   0         8.99   15.5  </code></pre>
 </div>
 </div>
-<p>Runtime (in minutes) = -654.399 + 0.364*(year) - 23.871 (Hanukkah) - 59.210(Kwanzaa) + 12.247 (Holiday)</p>
+<p>Runtime (in minutes) =</p>
+<p>-654.399 + 0.364*(Year) - 23.871(Hanukkah) - 59.210(Kwanzaa) + 12.247(Holiday)</p>
 <p>The intercept is Christmas, meaning that the -654.399 is the predicted runtime for a movie that has Christmas in the title and is made in the year 0. This intercept is not particularly useful, but it is important to recall the baseline the model builds from.</p>
 <p>Increasing year by 1, while keeping all else fixed, is associated with an 0.364 minute increase in the average run time, according to the model.</p>
 <p>For Kwanzaa and Hanukkah the model predicts decreases in run time if the holidays are mentioned in the title of a movie. This is also true of Christmas, which is the intercept, but not of movies that mention “holiday” in the title. This aligns with our findings from the violin plot, as movies with holiday in the title have a higher average runtime than movies with Christmas in the title.</p>

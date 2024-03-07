@@ -6,11 +6,7 @@ editor: visual
 
 # Write-up
 
-Your write-up should consist of three parts:
-
-## Introduction (1-2 paragraphs):
-
-*Brief introduction to the dataset. You may repeat some of the information about the dataset provided in the introduction to the dataset on the `TidyTuesday` repository, for instance. Imagine that your project is a standalone document and the grader has no prior knowledge of the dataset.*
+## Introduction:
 
 The dataset we chose is the holiday movies dataset from the TidyTuesday repository with dimensions of 2265x14. Our dataset looks at "holiday" movies: movies with "holiday", "Christmas", "Hanukkah", or "Kwanzaa" (or variants thereof) in their title. This dataset has 15 variables, some of which are: primary_title, original_title, year, runtime_minutes, genres, average_rating, and whether or not movies contain "Holiday", "Christmas", "Hanukkah", or "Kwanzaa" in their titles (using "TRUE" or "FALSE").
 
@@ -58,13 +54,13 @@ How does type of holiday affect a movie's rating, and for each holiday, how does
 
 #### Introduction:
 
-For this question, we start by looking at the columns "christmas", "hanukkah", "kwanzaa" and "holiday". Each film is assigned either "TRUE" or "FALSE" for if its title contains any of these words. To clean the data, we combined these columns into one, "holidays", using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies' average_rating, and the year it was made (ie. the age of the movie).
+For this question, we start by looking at the columns "christmas", "hanukkah", "kwanzaa" and "holiday". Each film is assigned either "TRUE" or "FALSE" for if its title contains any of these words. To clean the data, we combined these columns into one, "holidays", using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies' average rating, and the year it was made (ie. the age of the movie).
 
 #### Approach:
 
-We then made some visualizations, a histogram plot showing the frequency of average rating by movie type, and a scatterplot with a line of best fit showing average rating by year for each holiday. The histogram is able to show us the frequency of certain ratings and the scatterplot is able to show us all the individual data points, as well as lines of best fit associated with different holidays.
+To visualize this question, made a histogram plot showing the frequency of average rating by movie type and a scatterplot with a line of best fit showing average rating by year for each holiday. The histogram is able to show us the frequency of certain ratings and the scatterplot is able to show us all the individual data points, as well as lines of best fit associated with different holidays.
 
-#### Analysis (2-3 code blocks, 2 figures, text/code comments as needed):
+#### Analysis:
 
 ```{r, echo = FALSE}
 #visualizes the frequency of ratings by different holiday movies
@@ -103,29 +99,23 @@ ggplot(filtered_holiday_movies, aes(x = year,
 
 #### Discussion:
 
-In the Discussion section, interpret the results of your analysis. Identify any trends revealed (or not revealed) by the plots. Speculate about why the data looks the way it does.
+Our first plot shows that overall it seems like Kwanzaa movies are slightly above the 5.0 mark, but there are so few data points that it is hard to draw meaningful conclusions about them. This graph also shows us that Hanukkah movies have relatively high ratings, but are more variable compared to Christmas and holiday movies overall.
 
-Our first plot shows that overall it seems like Kwanzaa movies have the highest ratings overall, but this could be influenced by the fact that there are much fewer Kwanzaa movies in this dataset. This graph also shows us that Hanukkah movies have relatively high ratings, but are more variable compared to Christmas and holiday movies overall.
+Our second plot shows that overall ratings for holiday movies have decreased slightly but have been fairly consistent. It also more clearly exposes a lack of datapoints for both Kwanzaa and Hanukkah movies.
 
-Our second plot shows that overall ratings for holiday movies have decreased slightly but have been fairly consistent. It also more clearly exposes a hole in our data for both Kwanzaa and Hanukkah movies.
-
-These two graphs lead us to the conclusion that ...
+These two graphs lead us to the conclusion that the type of holiday mentioned in the title has a limited effect on the average rating, but as year increases the ratings for all typeshave slightly decreased.
 
 ### Question 2:
 
-*Same structure outlined for Question 1, but for your new question. And the title should relate to the question you’re answering.*
-
-*We encourage you to be concise. A paragraph should typically not be longer than 5 sentences.*
-
-*You are not required to perform any statistical tests in this project, but you may do so if you find it helpful to answer your question.*
+How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
 
 #### Introduction:
 
-Our second question was how do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time? The variables we looked at in this section were runtime_minutes, year, and type of movie.
+In our second question, we examine how movie runtime changes by movie type and age. To explore this, we used the variables runtime_minutes (the length of each movie), year (the year the movie was released in), and the type of movie (whether it contains Christmas, Holiday, Kwanzaa, or Hanukkah in the title). We looked to see if there was variation in movie length depending on its age, and if there was variation in average movie length based on its title.
 
 #### Approach:
 
-For our second question we made a violin plot showing runtime by holiday, and a scatterplot showing runtime by year and holiday. A violin plot is able to show us ... and a scatterplot is able to show us ...
+For our second question we made a violin plot that shows runtime by holiday. By using a violin plot, we are able to look at the density of runtime for each holiday, however it is important to note that the densities are not proportional in relation to each other. We also made a scatterplot showing runtime by year and holiday. The scatterplot is able to show us the individual points (representing individual movies), and how the trend in runtime has changed over the years. We included a linear model in order to gain an understanding of the strength of the correlation between these variables.
 
 #### Analysis:
 
@@ -136,18 +126,20 @@ Christmas <- filtered_holiday_movies %>%
   filter(holidays == "christmas") %>%
   filter(year >= 2000 & year <= 2023)
 
-ggplot(filtered_holiday_movies, aes(x = runtime_minutes, y = holidays, fill = holidays))+
-    geom_violin()+
+ggplot(filtered_holiday_movies, aes(x = runtime_minutes, 
+                                    y = holidays, 
+                                    fill = holidays)) +
+  geom_violin() +
   labs(title = "Runtime in holiday movies",
     x = "Runtime (in minutes)",
     y = ""
     ) +
   theme_minimal() +
   theme(legend.position = "none")
- 
 ```
 
 ```{r, echo = FALSE}
+#visualize the runtime of movies over time, faceted by holiday type
 ggplot(filtered_holiday_movies, aes(x = year, 
                                     y = runtime_minutes, 
                                     color = holidays)) +
@@ -156,24 +148,27 @@ ggplot(filtered_holiday_movies, aes(x = year,
               se = FALSE, 
               color = "gray36") +
   facet_wrap(~ holidays) +
-  theme(axis.text.x = element_text(angle = 65, 
-                                   vjust = 0.6)) + 
   labs(title = "Movie Runtime by Year and Holiday",
        x = "Year", 
        y = "Runtime in minutes",
-       color = "Holiday in movie title")
-
-
+       color = "Holiday in movie title") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  theme(axis.text.x = element_text(angle = 65, 
+                                   vjust = 0.6))
 ```
 
-Linear Model:
+#### Linear Model:
 
 ```{r, echo = FALSE}
+#generate a linear model predicting runtime based on year and holiday 
 holidays_lm <- lm(data = filtered_holiday_movies, runtime_minutes ~ year + holidays)
 get_regression_table(holidays_lm)
 ```
 
-Runtime (in minutes) = -654.399 + 0.364\*(year) - 23.871 (Hanukkah) - 59.210(Kwanzaa) + 12.247 (Holiday)
+Runtime (in minutes) =
+
+-654.399 + 0.364\*(Year) - 23.871(Hanukkah) - 59.210(Kwanzaa) + 12.247(Holiday)
 
 The intercept is Christmas, meaning that the -654.399 is the predicted runtime for a movie that has Christmas in the title and is made in the year 0. This intercept is not particularly useful, but it is important to recall the baseline the model builds from.
 
