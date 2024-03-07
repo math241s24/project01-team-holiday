@@ -17,7 +17,7 @@ We chose this dataset because we are interested in investigating the relationshi
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-```{r}
+```{r, echo = FALSE}
 #load necessary libraries
 library(tidyr)
 library(readr)
@@ -27,7 +27,7 @@ library(moderndive)
 ```
 
 ```{r, echo = FALSE}
-#aquires data
+#acquires data
 holiday_movies <- read_csv("data/holiday_movies.csv")
 
 #combines holidays into one column into new data frame, new_holiday_movies
