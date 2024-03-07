@@ -396,58 +396,6 @@
 </div>
 
 </section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#load necessary libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(moderndive)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#acquires data</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>holiday_movies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/holiday_movies.csv"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#combines holidays into one column into new data frame, new_holiday_movies</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>new_holiday_movies <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  holiday_movies,</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"christmas"</span>, </span>
-<span id="cb2-8"><a href="#cb2-8"></a>           <span class="st">"hanukkah"</span>, </span>
-<span id="cb2-9"><a href="#cb2-9"></a>           <span class="st">"kwanzaa"</span>, </span>
-<span id="cb2-10"><a href="#cb2-10"></a>           <span class="st">"holiday"</span>),</span>
-<span id="cb2-11"><a href="#cb2-11"></a>  <span class="at">names_to =</span> <span class="st">"holidays"</span>,</span>
-<span id="cb2-12"><a href="#cb2-12"></a>  <span class="at">values_to =</span> <span class="st">"true/false"</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>)</span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#filters only the movies where the associated holiday variable is "TRUE" (eg. if film has "christmas", it will not display "FALSE" for hanukkah, kwanzaa, and holiday). Creates data frame filtered_holiday_movies</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a>filtered_holiday_movies <span class="ot">&lt;-</span> new_holiday_movies[new_holiday_movies<span class="sc">$</span><span class="st">`</span><span class="at">true/false</span><span class="st">`</span>, ]</span>
-<span id="cb2-17"><a href="#cb2-17"></a></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#converts the "holidays" column into categories "christmas", "hanukkah", "kwanzaa", "holiday", useful for being graphed later</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a>filtered_holiday_movies<span class="sc">$</span>holidays <span class="ot">&lt;-</span> <span class="fu">factor</span>(filtered_holiday_movies<span class="sc">$</span>holidays, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"christmas"</span>, <span class="st">"hanukkah"</span>, <span class="st">"kwanzaa"</span>, <span class="st">"holiday"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="outline" class="slide level2 smaller">
-<h2>Outline</h2>
-<ul>
-<li><p>Your presentation should generally follow the same structure as your write-up.</p></li>
-<li><p>Each team will have 5 minutes for their presentation, and each team member must speak (roughly equally) during this time.</p></li>
-<li><p>Your presentation will be created using <code>Quarto</code>, which allows you to write slides using the same coding structure you’re used to with <code>Rmarkdown</code>.</p></li>
-<li><p>This is a sample Quarto slide template you can edit to your desire to create your presentation.</p></li>
-</ul>
-</section>
-<section id="rubric" class="slide level2">
-<h2>Rubric</h2>
-<ul>
-<li>Roughly I recommend 1 slide for introduction, 2 slides for Question 1, ans 2 slides for Question 2.
-<ul>
-<li>You can imagine spending roughly one minute on each slide.</li>
-<li>You should feel free to have more (or fewer) slides.</li>
-</ul></li>
-<li>Your evaluation will be based on your content, professionalism (including sticking to time), and your performance during the Q&amp;A (question and answer). We don’t care how many slides you use to do this.</li>
-</ul>
-</section>
 <section id="introduction" class="slide level2 smaller">
 <h2>Introduction</h2>
 <ul>
@@ -478,7 +426,7 @@
 </ul></li>
 </ul>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><ul>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><ul>
 <li>Kwanzaa highest ratings (sample size)</li>
 <li>Hanukkah variance in ratings</li>
 </ul>
@@ -489,7 +437,7 @@
 <li>Our second graph shows is aa scatterplot with line of best fit showing average rating by year for each holiday</li>
 </ul>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><ul>
 <li>Decrease in ratings overtime</li>
 <li>Small samples for some holidays</li>
 <li>Fairly consistant</li>
@@ -505,7 +453,7 @@
 </ul></li>
 </ul>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><ul>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><ul>
 <li>Kwanzaa movies short runtimes</li>
 <li>Hanukkah next</li>
 <li>Christmas have longest, concentration around 90 minutes</li>
@@ -518,7 +466,7 @@
 <li>Our second graph is a a scatterplot showing runtime by year and holiday</li>
 </ul>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><ul>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><ul>
 <li>Runtime has increased slightly over the years</li>
 <li>Stayed fairly consistent for holiday movies overall</li>
 <li>OVERALL CONCLUSION</li>
@@ -527,9 +475,9 @@
 <section id="question-2-linear-model" class="slide level2 smaller">
 <h2>Question 2 Linear Model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(moderndive)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>holidays_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> filtered_holiday_movies, runtime_minutes <span class="sc">~</span> year <span class="sc">*</span> holidays)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">get_regression_table</span>(holidays_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(moderndive)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>holidays_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">data =</span> filtered_holiday_movies, runtime_minutes <span class="sc">~</span> year <span class="sc">*</span> holidays)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">get_regression_table</span>(holidays_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 7
   term                    estimate std_error statistic p_value lower_ci upper_ci
