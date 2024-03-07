@@ -333,12 +333,27 @@
 </section>
 <section id="introduction" class="slide level2 smaller">
 <h2>Introduction</h2>
+<aside class="notes">
+<ul>
+<li>14 variables, 2265 observations</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>Our dataset: Holiday Movies
 <ul>
 <li>From TidyTuesday repository</li>
 <li>Dimensions: 2265x14</li>
-<li>Movies titles containing “Holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa”</li>
+<li>Of note: movies titles containing “Holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa”</li>
 </ul></li>
 <li>We looked at trends relating to ratings, age, and run time of different holiday movies
 <ul>
@@ -381,12 +396,15 @@
 <h2>Question 1 Graph 2</h2>
 <aside class="notes">
 <ul>
-<li>Our second graph shows is a scatterplot with line of best fit showing average rating over time for each holiday
+<li>Our second graph is a scatterplot with line of best fit showing the average rating over time for each holiday
 <ul>
-<li>Decrease in ratings overtime</li>
-<li>Small samples for some holidays</li>
+<li>Decrease in ratings over time</li>
 <li>Fairly consistent</li>
-<li>General takeaways</li>
+<li>Kwanzaa movies have the shortest runtimes (but small sample size)</li>
+<li>Hanukkah is next</li>
+<li>Christmas has the longest with a concentration around 90 minutes</li>
+<li>Holiday movies in general are typically around 90 minutes but have a wide range</li>
+<li>Hard to tell a pattern in kwanzaa and hanukkah, but useful for christmas and holiday</li>
 </ul></li>
 </ul>
 <style type="text/css">
@@ -434,7 +452,7 @@
 <ul>
 <li>Our second graph is a a scatterplot showing runtime of movies over time, faceted by holiday type
 <ul>
-<li>Runtime has increased slightly over the years</li>
+<li>Runtime has increased slightly over the years in all but “holiday”</li>
 <li>Stayed fairly consistent for holiday movies overall</li>
 <li>General takeaways</li>
 </ul></li>

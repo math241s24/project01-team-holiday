@@ -49,10 +49,14 @@ filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, lev
 
 ## Introduction {.smaller}
 
+::: {.notes}
+* 14 variables, 2265 observations
+:::
+
 * Our dataset: Holiday Movies
   * From TidyTuesday repository
   * Dimensions: 2265x14
-  * Movies titles containing "Holiday", "Christmas", "Hanukkah", or "Kwanzaa" 
+  * Of note: movies titles containing "Holiday", "Christmas", "Hanukkah", or "Kwanzaa" 
   
 * We looked at trends relating to ratings, age, and run time of different holiday movies 
   * We chose this data set because we are interested in:
@@ -87,11 +91,14 @@ ggplot(filtered_holiday_movies, aes(x = average_rating,
 ## Question 1 Graph 2 {.smaller}
 
 ::: {.notes}
-* Our second graph shows is a scatterplot with line of best fit showing average rating over time for each holiday 
-  * Decrease in ratings overtime
-  * Small samples for some holidays
+* Our second graph is a scatterplot with line of best fit showing the average rating over time for each holiday 
+  * Decrease in ratings over time
   * Fairly consistent
-  * General takeaways
+  * Kwanzaa movies have the shortest runtimes (but small sample size)
+  * Hanukkah is next
+  * Christmas has the longest with a concentration around 90 minutes
+  * Holiday movies in general are typically around 90 minutes but have a wide range
+  * Hard to tell a pattern in kwanzaa and hanukkah, but useful for christmas and holiday
 :::
 
 ```{r, echo = FALSE}
@@ -153,7 +160,7 @@ ggplot(filtered_holiday_movies, aes(x = runtime_minutes,
 
 ::: {.notes}
 * Our second graph is a a scatterplot showing runtime of movies over time, faceted by holiday type
-  * Runtime has increased slightly over the years
+  * Runtime has increased slightly over the years in all but "holiday"
   * Stayed fairly consistent for holiday movies overall
   * General takeaways
 :::

@@ -53,7 +53,7 @@
     "href": "presentation.html#introduction",
     "title": "Project Presentation",
     "section": "Introduction",
-    "text": "Introduction\n\nOur dataset: Holiday Movies\n\nFrom TidyTuesday repository\nDimensions: 2265x14\nMovies titles containing “Holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa”\n\nWe looked at trends relating to ratings, age, and run time of different holiday movies\n\nWe chose this data set because we are interested in:\n\nrelationship between movie types and public reception of them\nchanges in movie elements over time\nif the holiday the movies were written for played a role in this"
+    "text": "Introduction\n\n\n14 variables, 2265 observations\n\n\n\nOur dataset: Holiday Movies\n\nFrom TidyTuesday repository\nDimensions: 2265x14\nOf note: movies titles containing “Holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa”\n\nWe looked at trends relating to ratings, age, and run time of different holiday movies\n\nWe chose this data set because we are interested in:\n\nrelationship between movie types and public reception of them\nchanges in movie elements over time\nif the holiday the movies were written for played a role in this"
   },
   {
     "objectID": "presentation.html#question-1",
@@ -81,7 +81,7 @@
     "href": "presentation.html#question-1-graph-2",
     "title": "Project Presentation",
     "section": "Question 1 Graph 2",
-    "text": "Question 1 Graph 2\n\n\nOur second graph shows is a scatterplot with line of best fit showing average rating over time for each holiday\n\nDecrease in ratings overtime\nSmall samples for some holidays\nFairly consistent\nGeneral takeaways"
+    "text": "Question 1 Graph 2\n\n\nOur second graph is a scatterplot with line of best fit showing the average rating over time for each holiday\n\nDecrease in ratings over time\nFairly consistent\nKwanzaa movies have the shortest runtimes (but small sample size)\nHanukkah is next\nChristmas has the longest with a concentration around 90 minutes\nHoliday movies in general are typically around 90 minutes but have a wide range\nHard to tell a pattern in kwanzaa and hanukkah, but useful for christmas and holiday"
   },
   {
     "objectID": "presentation.html#question-2-graph-1",
@@ -95,7 +95,7 @@
     "href": "presentation.html#question-2-graph-2",
     "title": "Project Presentation",
     "section": "Question 2 Graph 2",
-    "text": "Question 2 Graph 2\n\n\nOur second graph is a a scatterplot showing runtime of movies over time, faceted by holiday type\n\nRuntime has increased slightly over the years\nStayed fairly consistent for holiday movies overall\nGeneral takeaways"
+    "text": "Question 2 Graph 2\n\n\nOur second graph is a a scatterplot showing runtime of movies over time, faceted by holiday type\n\nRuntime has increased slightly over the years in all but “holiday”\nStayed fairly consistent for holiday movies overall\nGeneral takeaways"
   },
   {
     "objectID": "presentation.html#question-2-graph-1-.smaller",
