@@ -29,8 +29,12 @@ editor_options:
   
 * Your evaluation will be based on your content, professionalism (including sticking to time), and your performance during the Q&A (question and answer). We don’t care how many slides you use to do this.
 
-## Introduction
+## Introduction {.smaller}
 
+* Our dataset: Holiday Movies
+  * From TidyTuesday repository
+  * Dimensions: 2265x14
+  * Movies with "holiday", "Christmas", "Hanukkah", or "Kwanzaa" 
 * We looked at trends relating to ratings, age, and run time of different holiday movies 
   * We chose this data set because we are interested in:
     * relationship between movie types and public reception of them

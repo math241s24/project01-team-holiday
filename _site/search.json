@@ -53,7 +53,7 @@
     "href": "presentation.html#introduction",
     "title": "Project Presentation",
     "section": "Introduction",
-    "text": "Introduction\n\nWe looked at trends relating to ratings, age, and run time of different holiday movies\n\nWe chose this data set because we are interested in:\n\nrelationship between movie types and public reception of them\nchanges in movie style over time\nwhether the holiday the movies were written for played a role in this"
+    "text": "Introduction\n\nOur dataset: Holiday Movies\n\nFrom TidyTuesday repository\nDimensions: 2265x14\nMovies with “holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa”\n\nWe looked at trends relating to ratings, age, and run time of different holiday movies\n\nWe chose this data set because we are interested in:\n\nrelationship between movie types and public reception of them\nchanges in movie style over time\nwhether the holiday the movies were written for played a role in this"
   },
   {
     "objectID": "presentation.html#question-1",
