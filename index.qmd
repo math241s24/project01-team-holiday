@@ -54,7 +54,7 @@ How does type of holiday affect a movie's rating, and for each holiday, how does
 
 #### Introduction:
 
-For this question, we start by looking at the columns "christmas", "hanukkah", "kwanzaa" and "holiday". Each film is assigned either "TRUE" or "FALSE" for if its title contains any of these words. To clean the data, we combined these columns into one, "holidays", using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies' average rating, and the year it was made (ie. the age of the movie).
+For this question, we start by looking at the columns "christmas", "hanukkah", "kwanzaa" and "holiday". Each film is assigned either "TRUE" or "FALSE" for if its title contains any of these words. To clean the data, we combined these columns into one, "holidays", using the pivot_longer function. Then we compared the different factors; the type of holiday movie it is, the movies' average rating, the number of reviews a movie received, and the year it was made (ie. the age of the movie).
 
 #### Approach:
 
@@ -78,8 +78,9 @@ ggplot(filtered_holiday_movies, aes(x = average_rating,
 #visualizes the change in ratings over years, faceted by holiday
 ggplot(filtered_holiday_movies, aes(x = year, 
                                     y = average_rating, 
-                                    color = holidays)) +
-  geom_point(alpha = 0.6) +
+                                    color = holidays, 
+                                    size = num_votes)) +
+  geom_point(alpha = 0.6 ) +
   geom_smooth(method="lm", 
               se = FALSE, 
               color = "gray36") +
@@ -95,11 +96,12 @@ ggplot(filtered_holiday_movies, aes(x = year,
   theme(legend.position = "none") +
   theme(axis.text.x = element_text(angle = 65, 
                                    vjust = 0.6))
+
 ```
 
 #### Discussion:
 
-Our first plot shows that overall it seems like Kwanzaa movies are slightly above the 5.0 mark, but there are so few data points that it is hard to draw meaningful conclusions about them. This graph also shows us that Hanukkah movies have relatively high ratings, but are more variable compared to Christmas and holiday movies overall.
+Our first plot shows that overall it seems like Kwanzaa movies are slightly above the 5.0 mark, but there are so few data points that it is hard to draw meaningful conclusions about them. This graph also shows us that Hanukkah movies have relatively high ratings, but are more variable compared to Christmas and holiday movies overall. The size of the dots being the number of votes for any given movie means that we can try and determine if there is any clear link between number of votes on a movie and its rating. In this graphic there does not seem to be much of a correlation, although some of the larger dots, especially for movies with "Holiday" in the title, seem to be above the lines of best fit.
 
 Our second plot shows that overall ratings for holiday movies have decreased slightly but have been fairly consistent. It also more clearly exposes a lack of datapoints for both Kwanzaa and Hanukkah movies.
 
@@ -157,24 +159,6 @@ ggplot(filtered_holiday_movies, aes(x = year,
   theme(axis.text.x = element_text(angle = 65, 
                                    vjust = 0.6))
 ```
-
-#### Linear Model:
-
-```{r, echo = FALSE}
-#generate a linear model predicting runtime based on year and holiday 
-holidays_lm <- lm(data = filtered_holiday_movies, runtime_minutes ~ year + holidays)
-get_regression_table(holidays_lm)
-```
-
-Runtime (in minutes) =
-
--654.399 + 0.364\*(Year) - 23.871(Hanukkah) - 59.210(Kwanzaa) + 12.247(Holiday)
-
-The intercept is Christmas, meaning that the -654.399 is the predicted runtime for a movie that has Christmas in the title and is made in the year 0. This intercept is not particularly useful, but it is important to recall the baseline the model builds from.
-
-Increasing year by 1, while keeping all else fixed, is associated with an 0.364 minute increase in the average run time, according to the model.
-
-For Kwanzaa and Hanukkah the model predicts decreases in run time if the holidays are mentioned in the title of a movie. This is also true of Christmas, which is the intercept, but not of movies that mention "holiday" in the title. This aligns with our findings from the violin plot, as movies with holiday in the title have a higher average runtime than movies with Christmas in the title.
 
 #### Discussion
 
