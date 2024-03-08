@@ -107,7 +107,7 @@ These two graphs lead us to the conclusion that the type of holiday mentioned in
 
 ### Question 2:
 
-How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? Is there a significant difference of run time over time?
+How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter?
 
 #### Introduction:
 

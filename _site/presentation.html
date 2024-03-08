@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
-  <title>project01-team-holiday - Project Presentation</title>
+  <title>project01-team-holiday - Holiday in Film</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -324,8 +324,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Project Presentation</h1>
-  <p class="subtitle">Holiday Movies</p>
+  <h1 class="title">Holiday in Film</h1>
+  <p class="subtitle">A Data Analysis of Holiday Movies</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -353,15 +353,15 @@
 <ul>
 <li>From TidyTuesday repository</li>
 <li>Dimensions: 2265x14</li>
+<li>Created by Jo Hardin, pulling from IMDb</li>
 <li>Of note: movies titles containing “Holiday”, “Christmas”, “Hanukkah”, or “Kwanzaa”</li>
 </ul></li>
 <li>We looked at trends relating to ratings, age, and run time of different holiday movies
 <ul>
 <li>We chose this data set because we are interested in:
 <ul>
-<li>relationship between movie types and public reception of them</li>
-<li>changes in movie elements over time</li>
-<li>if the holiday the movies were written for played a role in this</li>
+<li>How does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?</li>
+<li>How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter?</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -373,9 +373,9 @@
 <li>How does type of holiday affect a movie’s rating, and for each holiday, how does the movie’s age affect its rating?
 <ul>
 <li>We combined holidays into one column using pivot longer</li>
-<li>Our first graph is a density plot showing the average rating density by movie type</li>
+<li>Our first graph is a histogram showing the frequency of different average ratings by movie type</li>
 <li>Kwanzaa highest ratings (sample size)</li>
-<li>Hanukkah variance in ratings</li>
+<li>Hanukkah variance in ratings (also hard to see, given low number of data points)</li>
 <li>Christmas and Holiday most frequent</li>
 </ul></li>
 </ul>
@@ -400,11 +400,10 @@
 <ul>
 <li>Decrease in ratings over time</li>
 <li>Fairly consistent</li>
-<li>Kwanzaa movies have the shortest runtimes (but small sample size)</li>
-<li>Hanukkah is next</li>
-<li>Christmas has the longest with a concentration around 90 minutes</li>
-<li>Holiday movies in general are typically around 90 minutes but have a wide range</li>
-<li>Hard to tell a pattern in kwanzaa and hanukkah, but useful for christmas and holiday</li>
+<li>Overall ratings for holiday movies have decreased slightly, fairly consistent</li>
+<li>Lack of datapoints for both Kwanzaa and Hanukkah movies</li>
+<li>Type of holiday mentioned in the title has a limited effect on the average rating</li>
+<li>As year increases the ratings for all types have slightly decreased</li>
 </ul></li>
 </ul>
 <style type="text/css">

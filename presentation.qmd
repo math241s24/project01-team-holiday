@@ -1,6 +1,6 @@
 ---
-title: "Project Presentation"
-subtitle: "Holiday Movies"
+title: "Holiday in Film"
+subtitle: "A Data Analysis of Holiday Movies"
 format: 
   revealjs
 highlight-style: a11y
@@ -56,13 +56,13 @@ filtered_holiday_movies$holidays <- factor(filtered_holiday_movies$holidays, lev
 * Our dataset: Holiday Movies
   * From TidyTuesday repository
   * Dimensions: 2265x14
+  * Created by Jo Hardin, pulling from IMDb
   * Of note: movies titles containing "Holiday", "Christmas", "Hanukkah", or "Kwanzaa" 
   
 * We looked at trends relating to ratings, age, and run time of different holiday movies 
   * We chose this data set because we are interested in:
-    * relationship between movie types and public reception of them
-    * changes in movie elements over time
-    * if the holiday the movies were written for played a role in this
+    * How does type of holiday affect a movie's rating, and for each holiday, how does the movie's age affect its rating?
+    * How do movie run times vary over time? Have holiday movies gotten longer over time? Shorter? 
 
 ## Question 1 Graph 1 {.smaller}
 
